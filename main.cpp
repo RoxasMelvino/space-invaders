@@ -46,9 +46,10 @@ int main() {
             vel.x = 0;
         }
 
+        // TODO: FIX THE GODDAMN MOVEMENT!!!!
         // this movement is sloppy and fucking horrendous. fix it later.
-        // possible solution: have a direction vector and then scale it with the velocity.
-        // move the ship with WASD controls
+        // possible solution: have a separate direction vector and then scale it with the velocity/speed!!@!!1.
+        // move the ship with WASD controls, and then later implement controller controls
 
         // vel.x = 0; // resetting velocity causes the ship to stutter when changing direction
         // vel.y = 0;
