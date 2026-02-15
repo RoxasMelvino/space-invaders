@@ -1,15 +1,21 @@
 #include <iostream>
 #include "raylib.h"
-#include "assets.h"
 #include <cmath>
 
 #include "raymath.h"
 
+struct Circle {
+    Vector2 pos;
+    int radius;
+    Color color;
+};
 
 int main() {
     int windowWidth = 1600;
     int windowHeight = 900;
     InitWindow(windowWidth, windowHeight, "Space Invaders");
+
+
 
     // create circle
     Circle ship;
