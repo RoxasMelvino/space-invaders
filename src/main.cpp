@@ -18,7 +18,7 @@ int main() {
 
 
     // create circle
-    Circle ship;
+    Circle ship{};
     ship.pos.x = windowWidth / 2.0;
     ship.pos.y = windowHeight / 2.0;
     ship.radius = 10;
