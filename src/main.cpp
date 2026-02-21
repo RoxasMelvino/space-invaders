@@ -1,8 +1,5 @@
 #include <iostream>
-#include <cmath>
 #include "raylib.h"
-#include "raymath.h"
-#include "entities/Player.h"
 #include "Game.h"
 
 
