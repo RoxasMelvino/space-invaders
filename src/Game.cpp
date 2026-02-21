@@ -1,12 +1,12 @@
 #include "Game.h"
-#include <iostream>
 
 void Game::Update() {
     ClearBackground(BLACK);
-
     player.Update();
+    enemy.Update();
 }
 
 void Game::Draw() {
     player.Draw();
+    enemy.Draw();
 }
