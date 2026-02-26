@@ -1,13 +1,20 @@
-//
-// Created by melvi on 2/22/2026.
-//
 
-#ifndef SPACE_INVADERS_BULLET_H
-#define SPACE_INVADERS_BULLET_H
+#ifndef BULLET_H
+#define BULLET_H
 
+#include "raylib.h"
 
 class Bullet {
+    private:
+        Vector2 pos;
+        Vector2 dir;
+        Vector2 vel;
+        int speed;
+
+    public:
+        Bullet(Vector2 posInp, Vector2 dirInp, int speed);
+        void Update();
+        void Draw();
 };
 
-
-#endif //SPACE_INVADERS_BULLET_H
+#endif //BULLET_H
