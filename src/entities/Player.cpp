@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "raymath.h"
 #include "raylib.h"
+#include <iostream>
 
 Player::Player() {
     // default position
@@ -16,6 +17,7 @@ Player::Player() {
     // hardcoded for now
     speed = 500;
     health = 500;
+    wantShoot = false;
 }
 
 void Player::Draw(int radius, Color color) {
@@ -43,5 +45,23 @@ void Player::Update() {
 
     pos.x += vel.x * dt;
     pos.y += vel.y * dt;
+
+    // Check for left click input
+    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        // std::cout << "in mouse button pressdedc" << std::endl;
+        wantShoot = true;
+    } else {
+        wantShoot = false;
+    }
 }
+
+Vector2 Player::GetPos() {
+    return pos;
+}
+
+bool Player::WantShoot() {
+    return wantShoot;
+}
+
+
 
