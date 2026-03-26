@@ -13,6 +13,7 @@ class Enemy {
         Enemy();
         void Update();
         void Draw();
+        bool IsTouchingBorder();
 };
 
 
