@@ -16,7 +16,7 @@ void Game::Update() {
     playerBulletDir.x = 0;
     playerBulletDir.y = -1; // player bullets will shoot straight up for now.
 
-    if (player.WantShoot()) { CreateBullet(player.GetPos(), playerBulletDir, 250); }
+    if (player.WantShoot()) { CreateBullet(player.GetPos(), playerBulletDir, 2000); }
 
     for (Bullet& bullet : bullets) {
         // std::cout << "Updating bullet" << std::endl;
