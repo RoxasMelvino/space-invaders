@@ -1,7 +1,9 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "raylib.h"
-// #include "../Game.h"
+#include "raymath.h"
+#include <iostream>
+#include <algorithm>
 
 
 class Player {
@@ -12,13 +14,15 @@ class Player {
         double speed;
         int health;
         bool wantShoot;
+        int size;
 
     public:
         Player();
-        void Draw(int radius = 10, Color color = BLUE); // for now, the player will just be a circle
-        void Update(); // handle input for WASD
+        void Draw(Color color = BLUE); // for now, the player will just be a circle
+        void Update();
         Vector2 GetPos();
         bool WantShoot();
+        bool IsTouchingBorder();
 };
 
 

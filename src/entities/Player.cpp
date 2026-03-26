@@ -1,7 +1,5 @@
 #include "Player.h"
-#include "raymath.h"
-#include "raylib.h"
-#include <iostream>
+
 
 Player::Player() {
     // default position
@@ -15,13 +13,14 @@ Player::Player() {
     dir.y = 0;
 
     // hardcoded for now
+    size = 10;
     speed = 500;
     health = 500;
     wantShoot = false;
 }
 
-void Player::Draw(int radius, Color color) {
-    DrawCircle(pos.x, pos.y, radius, color);
+void Player::Draw(Color color) {
+    DrawCircle(pos.x, pos.y, size, color);
 }
 
 void Player::Update() {
@@ -47,12 +46,20 @@ void Player::Update() {
     pos.y += vel.y * dt;
 
     // Check for left click input
-    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        // std::cout << "in mouse button pressdedc" << std::endl;
-        wantShoot = true;
-    } else {
-        wantShoot = false;
+    wantShoot = false;
+    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {wantShoot = true;}
+    if (IsTouchingBorder()) {
+        // clamp the player's position so that they don't move beyond the screen
+        float Xmin = size;
+        float Xmax = GetScreenWidth() - size;
+        float Ymin = size;
+        float Ymax = GetScreenHeight() - size;
+
+        pos.x = std::clamp(pos.x, Xmin, Xmax);
+        pos.y = std::clamp(pos.y, Ymin, Ymax);
+
     }
+
 }
 
 Vector2 Player::GetPos() {
@@ -62,6 +69,11 @@ Vector2 Player::GetPos() {
 bool Player::WantShoot() {
     return wantShoot;
 }
+
+bool Player::IsTouchingBorder() {
+    return (pos.x <= size || pos.x >= GetScreenWidth() - size || pos.y <= size || pos.y >= GetScreenHeight() - size);
+}
+
 
 
 
