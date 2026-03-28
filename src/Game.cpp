@@ -21,11 +21,9 @@ void Game::Update() {
 
     Vector2 playerBulletDir;
     playerBulletDir.x = 0;
-    playerBulletDir.y = -1; // player bullets will shoot straight up for now.
+    playerBulletDir.y = -1;
 
-    Vector2 enemyBulletDir = BulletTrackEntity(player.GetPos(), enemy.GetPos());
-    enemyBulletDir.y *= -1;
-    enemyBulletDir.x *= -1;
+    Vector2 enemyBulletDir = BulletTrackEntity(enemy.GetPos(), player.GetPos());
 
     if (player.WantShoot()) { CreateBullet(player.GetPos(), playerBulletDir, 2000); }
     if (enemy.WantShoot()) {
