@@ -19,10 +19,7 @@ void Game::Update() {
     player.Update();
     enemy.Update();
 
-    Vector2 playerBulletDir;
-    playerBulletDir.x = 0;
-    playerBulletDir.y = -1;
-
+    Vector2 playerBulletDir = BulletTrackEntity(player.GetPos(), GetMousePosition());
     Vector2 enemyBulletDir = BulletTrackEntity(enemy.GetPos(), player.GetPos());
 
     if (player.WantShoot()) { CreateBullet(player.GetPos(), playerBulletDir, 2000); }
