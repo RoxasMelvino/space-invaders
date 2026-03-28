@@ -23,11 +23,7 @@ void Game::Update() {
     Vector2 enemyBulletDir = BulletTrackEntity(enemy.GetPos(), player.GetPos());
 
     if (player.WantShoot()) { CreateBullet(player.GetPos(), playerBulletDir, 2000); }
-    if (enemy.WantShoot()) {
-        // std::cout << "player pos: " << player.GetPos().x << " " << player.GetPos().y << std::endl;
-        // std::cout << "enemy pos: " << enemy.GetPos().x << " " << enemy.GetPos().y << std::endl;
-        CreateBullet(enemy.GetPos(), enemyBulletDir, 1000);
-    }
+    if (enemy.WantShoot()) {CreateBullet(enemy.GetPos(), enemyBulletDir, 1000);}
 
     for (Bullet& bullet : bullets) {
         // std::cout << "Updating bullet" << std::endl;
