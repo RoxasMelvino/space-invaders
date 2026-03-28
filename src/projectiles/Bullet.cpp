@@ -9,7 +9,6 @@ Bullet::Bullet(Vector2 posInp, Vector2 dirInp, int speedInp) {
 
 void Bullet::Update() {
     float dt = GetFrameTime();
-
     vel = Vector2Scale(dir, speed);
 
     pos.x += vel.x * dt;
